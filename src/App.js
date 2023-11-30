@@ -1,13 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import { Header } from './components/ui/header.component';
+import { AppRoutes } from './routes/app-routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       My Fabulous Store
-      </header>
-    </div>
+   <BrowserRouter>
+      <Header />
+      <AppRoutes />
+   </BrowserRouter>
   );
 }
 
