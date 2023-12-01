@@ -1,0 +1,1 @@
+export const mockProductsApi = 'https://fakestoreapi.com/products';
