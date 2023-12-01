@@ -14,11 +14,11 @@ const Header = ({ cart }) => {
             </Link>
             <Link to='/cart'>
                 {(cart.length > 0) ? (
-                        <Badge sx={{ marginTop: '15px'}} badgeContent={ cart.length } color="primary">
+                        <Badge sx={{ marginTop: '25px'}} badgeContent={ cart.length } color="primary">
                             <ShoppingCartIcon sx={{ color: 'white'}} />
                         </Badge>
                     ) : (
-                        <ShoppingCartIcon sx={{ color: 'white', marginTop: '15px'}} />
+                        <ShoppingCartIcon sx={{ color: 'white', marginTop: '25px'}} />
                 )}
             </Link>
             </RowContainer>
@@ -40,5 +40,7 @@ const HeaderContainer = styled.header`
 
 const TextWrapper = styled.h1`
     color: white;
-    font-size: 20px;
+    margin: 10px 0;
+    font-size: 36px;
+    font-family: 'Playfair Display', serif;
 `;

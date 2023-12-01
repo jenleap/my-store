@@ -5,11 +5,13 @@ import ProductItem from "./partials/product-item.component";
 import { Modal } from "./ui/modal.component";
 import { Container } from "./ui/container.styled";
 import { formatPrice } from "../utils/formatters";
+import { BasicText, NumberText, SubHeadingText } from "./ui/text.styled";
 
 export const ProductPage = () => {
     const [ products, setProducts ] = useState([]);
     const [ showProductModal, setShowProductModal ] = useState(false);
     const [ selectedProduct, setSelectedProduct ] = useState(undefined);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         getProducts();
@@ -32,18 +34,19 @@ export const ProductPage = () => {
     }
 
     return (
+        <PageBackground>
         <Container>
         {
             (products.length > 0) && (
                 <ProductGrid>
                 {
                     products.map(product => (
-                        <ProductGridItem key={ product.id }>
-                            <ImageDiv  src={ product.image } alt={ product.title } onClick={ () => openProductModal(product)}/>
-                            <div>
-                                <div>{product.title}</div>
-                                <div>{formatPrice(product.price)}</div>
-                            </div> 
+                        <ProductGridItem key={ product.id } onClick={ () => openProductModal(product)}>
+                            <ImageDiv  src={ product.image } alt={ product.title } />
+                            <DetailsDiv>
+                                <BasicText>{product.title}</BasicText>
+                                <NumberText>{formatPrice(product.price)}</NumberText>
+                            </DetailsDiv> 
                         </ProductGridItem>
                         
                     ))
@@ -58,11 +61,16 @@ export const ProductPage = () => {
             <ProductItem product={ selectedProduct } onAdded={ closeProductModal }></ProductItem>
         </Modal>
         </Container>
+        </PageBackground>
     )
 }
 
+const PageBackground = styled.div`
+    background-color: #f2f2f2;
+;`
+
 const ProductGrid = styled.div`
-    margin-top: 50px;
+    padding-top: 50px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 1rem;
@@ -73,7 +81,8 @@ const ProductGrid = styled.div`
 `;
 
 const ProductGridItem = styled.div`
-    padding: 10px;
+    background-color: white;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-item: center;
@@ -84,5 +93,12 @@ const ProductGridItem = styled.div`
 const ImageDiv = styled.img`
    max-width: 150px;
    max-height: 150px;
-   margin: auto;
+   margin: 10px auto 20px auto;
+`;
+
+const DetailsDiv = styled.div`
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 `;

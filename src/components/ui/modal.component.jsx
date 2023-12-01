@@ -1,30 +1,23 @@
 import styled from 'styled-components';
-import CloseIcon from '@mui/icons-material/Close';
+import Fade from '@mui/material/Fade';
+import Grow from '@mui/material/Grow';
 import { RemoveButton } from './remove-button.styled';
 
 
 export const Modal = ({ showModal, closeModal, children }) => {
-
-    /* const animationBody = useSpring({
-        opacity: showModal ? 1 : 0,
-        transform: showModal ? `translateY(0)` : `translateY(-200%)`,
-        config: config.slow
-    });
-
-    const animationBackground = useSpring({
-        opacity: showModal ? 1 : 0
-    }); */
-
-
     return (
         <>
         { showModal && (
+            <Fade in={ showModal }>
             <ModalBackground onClick={closeModal}>
+                <Grow in={showModal} {...(showModal ? { timeout: 600 } : {})}>
                 <ModalBody onClick={e => e.stopPropagation()}>
                     <RemoveButton handleClick={ closeModal } />
                         { children }
                 </ModalBody>
+                </Grow>
             </ModalBackground>
+            </Fade>
         )}
         </>
     )

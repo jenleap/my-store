@@ -6,6 +6,8 @@ import { Container, Row } from './ui/container.styled';
 import { SplitDiv } from './ui/split-div.styled';
 import CartItem from './partials/cart-item.component';
 import { formatPrice } from '../utils/formatters';
+import { Button, GhostButton } from './ui/button.styled';
+import { HeadingText, SubHeadingText } from './ui/text.styled';
 
 const CartPage = ({ cart, clearCart}) => {
 
@@ -21,12 +23,12 @@ const CartPage = ({ cart, clearCart}) => {
             <SplitDiv leftWeight={2} rightWeight={1}>
                 <>
                     {(cart.length < 1) ? (
-                        <h2>Your cart is empty.</h2>
+                        <SubHeadingText>Your cart is empty.</SubHeadingText>
                     ) : (
                         <>
-                         <Row>
-                            <span>Your Cart</span>   
-                            <button onClick={ clearCart }>Clear</button>
+                         <Row style={{ marginTop: '15px'}}>
+                            <HeadingText>Your Cart</HeadingText>   
+                            <GhostButton onClick={ clearCart }>Clear</GhostButton>
                         </Row>
                         { cart.map(product => (
                             <CartItem key={ product.id } product={ product }/>
@@ -36,7 +38,7 @@ const CartPage = ({ cart, clearCart}) => {
                     }
                 </>
                 <SummaryDiv>  
-                    <h3>Order Summary</h3>
+                    <HeadingText>Order Summary</HeadingText>
                     <Divider />
                     <Row>
                         <span>Subtotal</span>
@@ -54,7 +56,7 @@ const CartPage = ({ cart, clearCart}) => {
                         <span>Total</span>
                         <span>{ formatPrice(getSubtotal())}</span>
                     </Row>
-                    <button>Checkout</button>
+                    <Button>Checkout</Button>
                 </SummaryDiv>
             </SplitDiv>
         </Container>

@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cart.actions';
 import { SplitDiv } from '../ui/split-div.styled';
 import { formatPrice } from '../../utils/formatters';
+import { Button } from '../ui/button.styled';
+import { IncrementDecrement } from '../ui/increment-decrement.component';
 
 const ProductItem = ({ product, onAdded, addToCart }) => {
     const [ quantity, setQuantity ] = useState(1);
@@ -30,10 +32,8 @@ const ProductItem = ({ product, onAdded, addToCart }) => {
                 <div>{ product.title }</div>
                 <p>{product.description }</p>
                 <div>{ formatPrice(product.price) }</div>
-                <span><RemoveIcon onClick={ decreaseQuantity }/></span>
-                <span>{ quantity }</span>
-                <span><AddIcon onClick={() => setQuantity((currentQuantity) => currentQuantity + 1)} /></span>
-                <button onClick={ onAddToCart }>Add to Cart</button>
+                <IncrementDecrement quantity={ quantity} handleQuantityUpdate={setQuantity} />
+                <Button onClick={ onAddToCart }>Add to Cart</Button>
             </>
             
             
