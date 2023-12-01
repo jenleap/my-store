@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import CloseIcon from '@mui/icons-material/Close';
+import { RemoveButton } from './remove-button.styled';
 
 
 export const Modal = ({ showModal, closeModal, children }) => {
@@ -20,9 +21,7 @@ export const Modal = ({ showModal, closeModal, children }) => {
         { showModal && (
             <ModalBackground onClick={closeModal}>
                 <ModalBody onClick={e => e.stopPropagation()}>
-                    <CloseModalButton onClick={closeModal}>
-                        <CloseIcon />
-                    </CloseModalButton>
+                    <RemoveButton handleClick={ closeModal } />
                         { children }
                 </ModalBody>
             </ModalBackground>
@@ -40,7 +39,7 @@ const ModalBackground = styled.div`
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0,0.5);
-    transition: opacity 2s;
+    transition: display 2s;
 `;
 
 const ModalBody = styled.div`
@@ -52,17 +51,5 @@ const ModalBody = styled.div`
     max-height: 80vh;
     box-shadow: 0 5px 16px rgba(0,0,0, 0.2);
     position: relative;
-    transition: opacity 2s;
-`;
-
-const CloseModalButton = styled.button`
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 24px;
-    height: 24px;
-    padding: 0;
+    transition: display 2s;
 `;
