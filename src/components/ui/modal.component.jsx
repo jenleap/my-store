@@ -44,4 +44,7 @@ const ModalBody = styled.div`
     box-shadow: 0 5px 16px rgba(0,0,0, 0.2);
     position: relative;
     transition: display 2s;
+    @media (max-width: 480px) {
+        width: 80%;
+    }
 `;

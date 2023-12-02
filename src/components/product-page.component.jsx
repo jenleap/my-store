@@ -53,8 +53,6 @@ export const ProductPage = () => {
         });
     }
 
-    
-
     return (
         <PageBackground>
             <Container>
@@ -74,8 +72,6 @@ export const ProductPage = () => {
     )
 }
 
-
-
 const PageBackground = styled.div`
     background-color: #f2f2f2;
 ;`
@@ -87,7 +83,7 @@ const ProductGrid = styled.div`
     grid-gap: 1rem;
     grid-auto-flow: row;
     @media (max-width: 480px) {
-        grid-template-columns: auto auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 `;
 

@@ -102,6 +102,9 @@ const ImageDiv = styled.img`
    max-width: 150px;
    max-height: 150px;
    margin: 10px auto 20px auto;
+   @media (max-width: 480px) {
+        width: 80%;
+    }
 `;
 
 const DetailsDiv = styled.div`

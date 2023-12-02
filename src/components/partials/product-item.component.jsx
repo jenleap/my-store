@@ -46,4 +46,8 @@ const DetailsDiv = styled.div`
 
 const ImageDiv = styled.img`
     width: 200px;
+    @media (max-width: 480px) {
+        margin-top: 20px;
+        width: 100%;
+    }
 `;
