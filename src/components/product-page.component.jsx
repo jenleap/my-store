@@ -23,7 +23,6 @@ export const ProductPage = () => {
     };
 
     useEffect(() => {
-        console.log("HERE");
         getProducts();
     }, []);
 
@@ -39,7 +38,6 @@ export const ProductPage = () => {
             fetch(mockProductsApi)
                 .then(res => res.json())
                 .then(products => {
-                    console.log("PAGE: ", page);
                     const formattedProducts = formatProductId(products);
                     setProducts(prevProducts => [...prevProducts, ...formattedProducts]);
                     setPage(prevPage => prevPage + 1);
@@ -48,6 +46,7 @@ export const ProductPage = () => {
         } 
     }
 
+    // Because we are calling the mockapi more than once, generate unique ids to be used as keys
     const formatProductId = (products) => {
         return products.map(product => {
             return {

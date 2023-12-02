@@ -43,4 +43,7 @@ const TextWrapper = styled.h1`
     margin: 10px 0;
     font-size: 36px;
     font-family: 'Playfair Display', serif;
+    @media (max-width: 480px) {
+        font-size: 26px;
+    }
 `;

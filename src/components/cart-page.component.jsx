@@ -7,7 +7,7 @@ import { SplitDiv } from './ui/split-div.styled';
 import CartItem from './partials/cart-item.component';
 import { formatPrice } from '../utils/formatters';
 import { Button, GhostButton } from './ui/button.styled';
-import { HeadingText, SubHeadingText } from './ui/text.styled';
+import { BasicText, HeadingText, NumberText, SubHeadingText } from './ui/text.styled';
 
 const CartPage = ({ cart, clearCart}) => {
 
@@ -39,22 +39,22 @@ const CartPage = ({ cart, clearCart}) => {
                 </>
                 <SummaryDiv>  
                     <HeadingText>Order Summary</HeadingText>
-                    <Divider />
+                    <Divider sx={{ margin: '10px 0'}}/>
                     <Row>
-                        <span>Subtotal</span>
-                        <span>{ formatPrice(getSubtotal())}</span>
+                        <BasicText>Subtotal</BasicText>
+                        <NumberText>{ formatPrice(getSubtotal())}</NumberText>
                     </Row>
                     <Row>
-                        <span>Shipping</span>
-                        <span>TBD</span>
+                        <BasicText>Shipping</BasicText>
+                        <BasicText>TBD</BasicText>
                     </Row>
                     <Row>
-                        <span>Taxes</span>
-                        <span>TBD</span>
+                        <BasicText>Taxes</BasicText>
+                        <BasicText>TBD</BasicText>
                     </Row>
-                    <Row>
-                        <span>Total</span>
-                        <span>{ formatPrice(getSubtotal())}</span>
+                    <Row style={{ fontWeight: 'bold', marginBottom: '20px'}}>
+                        <BasicText>Total</BasicText>
+                        <NumberText>{ formatPrice(getSubtotal())}</NumberText>
                     </Row>
                     <Button>Checkout</Button>
                 </SummaryDiv>

@@ -1,22 +1,15 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cart.actions';
 import { SplitDiv } from '../ui/split-div.styled';
 import { formatPrice } from '../../utils/formatters';
 import { Button } from '../ui/button.styled';
 import { IncrementDecrement } from '../ui/increment-decrement.component';
+import { BasicText, HeadingText, NumberText } from '../ui/text.styled';
 
 const ProductItem = ({ product, onAdded, addToCart }) => {
     const [ quantity, setQuantity ] = useState(1);
-
-    const decreaseQuantity = () => {
-        if (quantity > 0) {
-            setQuantity((currentQuantity) => currentQuantity - 1);
-        }
-    }
 
     const onAddToCart = () => {
         addToCart({...product, quantity});
@@ -25,18 +18,14 @@ const ProductItem = ({ product, onAdded, addToCart }) => {
 
     return (
         <SplitDiv leftWeight={1} rightWeight={2}>
-            <>
-                <ImageDiv src={ product.image } alt={ product.title }></ImageDiv>
-            </>
-            <>
-                <div>{ product.title }</div>
-                <p>{product.description }</p>
-                <div>{ formatPrice(product.price) }</div>
+            <ImageDiv src={ product.image } alt={ product.title }></ImageDiv>
+            <DetailsDiv>
+                <HeadingText>{ product.title }</HeadingText>
+                <BasicText>{product.description }</BasicText>
+                <NumberText>{ formatPrice(product.price) }</NumberText>
                 <IncrementDecrement quantity={ quantity} handleQuantityUpdate={setQuantity} />
                 <Button onClick={ onAddToCart }>Add to Cart</Button>
-            </>
-            
-            
+            </DetailsDiv>
         </SplitDiv>
     )
 }
@@ -49,8 +38,10 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(null, mapDispatchToProps)(ProductItem);
 
-const ItemDiv = styled.div`
+const DetailsDiv = styled.div`
     display: flex;
+    flex-direction: column;
+    gap: 10px;
 `;
 
 const ImageDiv = styled.img`
