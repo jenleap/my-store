@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: jenleap
-  IMAGE_NAME: my-lists-web
+  IMAGE_NAME: my-store
 
 jobs:
   build_and_push:
@@ -55,7 +55,7 @@ jobs:
             # Remove old container
             docker rm $(echo $IMAGE_NAME)
             # Run a new container from a new image
-            docker run -d -p 3004:80 \
+            docker run -d -p 3005:80 \
             --env-file /etc/environment \
             --restart always \
             --name $(echo $IMAGE_NAME) \
