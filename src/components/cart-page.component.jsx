@@ -23,7 +23,7 @@ const CartPage = ({ cart, clearCart}) => {
             <SplitDiv leftWeight={2} rightWeight={1}>
                 <>
                     {(cart.length < 1) ? (
-                        <SubHeadingText>Your cart is empty.</SubHeadingText>
+                        <HeadingText style={{ margin: '30px'}}>Your cart is empty.</HeadingText>
                     ) : (
                         <>
                          <Row style={{ marginTop: '15px'}}>
