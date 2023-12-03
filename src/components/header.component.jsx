@@ -41,6 +41,9 @@ export default connect(mapStateToProps, { })(Header);
 
 const HeaderContainer = styled.header`
     background-color: black;  
+    position: sticky;
+    top: 0;
+    z-index: 1;
 `;
 
 const TextWrapper = styled.h1`
