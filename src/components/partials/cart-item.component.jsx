@@ -5,11 +5,10 @@ import { SplitDiv } from '../ui/split-div.component';
 import { formatPrice } from '../../utils/formatters';
 import { RemoveButton } from '../ui/remove-button.component';
 import { IncrementDecrement } from '../ui/increment-decrement.component';
-import { SubHeadingText, NumberText } from '../ui/styles/text.styled';
+import { SubHeadingText, NumberText, BasicText } from '../ui/styles/text.styled';
 
 
 const CartItem = ({ product, removeFromCart, updateItem }) => {
-
     const updateQuantity = (newQuantity) => {
         if (newQuantity > 0) {
             updateItem(product.id, newQuantity);
@@ -29,6 +28,7 @@ const CartItem = ({ product, removeFromCart, updateItem }) => {
                 <ImageDiv src={ product.image } alt={ product.title }></ImageDiv>
                 <>
                     <SubHeadingText>{ product.title }</SubHeadingText>
+                    <BasicText>SKU: { product.id }</BasicText>
                     <NumberText>Price: { formatPrice(product.price) }</NumberText>
                     <QuantityWrapper>
                         <IncrementDecrement quantity={ product.quantity } handleQuantityUpdate={ updateQuantity } />

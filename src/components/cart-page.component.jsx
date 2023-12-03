@@ -7,10 +7,9 @@ import { SplitDiv } from './ui/split-div.component';
 import CartItem from './partials/cart-item.component';
 import { formatPrice } from '../utils/formatters';
 import { Button, GhostButton } from './ui/styles/button.styled';
-import { BasicText, HeadingText, NumberText, SubHeadingText } from './ui/styles/text.styled';
+import { BasicText, HeadingText, NumberText } from './ui/styles/text.styled';
 
 const CartPage = ({ cart, clearCart}) => {
-
     const getSubtotal = () => {
         return cart.reduce((total, product) => {
             console.log(total, product);

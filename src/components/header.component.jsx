@@ -9,23 +9,22 @@ const Header = ({ cart }) => {
     return (
         <HeaderContainer>
             <RowContainer>
-            <Link to="/" style={{ textDecoration: 'none' }}>
-                <TextWrapper>My Fabulous Store</TextWrapper>
-            </Link>
-            <Link to='/cart'>
-                {(cart.length > 0) ? (
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <TextWrapper>My Fabulous Store</TextWrapper>
+                </Link>
+                <Link to='/cart'>
+                    {(cart.length > 0) ? (
                         <IconWrapper>
                             <Badge badgeContent={ cart.length } color="primary">
                                 <ShoppingCartIcon sx={{ color: 'white'}} />
                             </Badge>
                         </IconWrapper>
-                        
                     ) : (
                         <IconWrapper>
                             <ShoppingCartIcon sx={{ color: 'white'}} />
                         </IconWrapper>
-                )}
-            </Link>
+                    )}
+                </Link>
             </RowContainer>
         </HeaderContainer>
     )

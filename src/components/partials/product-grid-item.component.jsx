@@ -22,7 +22,7 @@ const ProductGridItem = ({ product, cart }) => {
         setIsInCart(checkIsInCart());
     }, [cart]);
 
-    const openProductModal = (product) => {
+    const openProductModal = () => {
         if (isInCart) {
             navigate('/cart');
         } else {

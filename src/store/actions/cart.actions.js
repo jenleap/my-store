@@ -5,14 +5,12 @@ export const UPDATE_ITEM = "UPDATE_ITEM";
 
 /* This file contains the types & functions for dispatching actions to the reducer */
 
-export const addToCart = (product) => {
-    return {
-        type: ADD_TO_CART,
-        payload: {
-            product
-        }
-    }    
-};
+export const addToCart = (product) => ({
+    type: ADD_TO_CART,
+    payload: {
+        product
+    }
+});
 
 export const removeFromCart = (productId) => ({
     type: REMOVE_FROM_CART,

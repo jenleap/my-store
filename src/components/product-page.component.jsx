@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Container } from "./ui/styles/container.styled";
@@ -10,12 +10,12 @@ const ProductPage = ({ products, getProducts }) => {
     const [page, setPage] = useState(1);
     const [ hasMoreProducts, setHasMoreProducts ] = useState(true);
 
-    const handleScroll = useCallback(() => {
+    const handleScroll = () => {
         const endOfPage = window.innerHeight + window.scrollY >= document.body.offsetHeight;
         if (endOfPage && hasMoreProducts) {
             setPage(prevPage => prevPage + 1);
         }
-    }, [hasMoreProducts]);
+    };
 
     const checkIfMoreProducts = () => {
         if (products.length >= 100) {
@@ -32,7 +32,7 @@ const ProductPage = ({ products, getProducts }) => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [handleScroll]);
+    }, []);
 
     return (
         <PageBackground>

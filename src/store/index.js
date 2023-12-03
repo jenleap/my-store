@@ -4,15 +4,16 @@ import { cartReducer } from './reducers/cart.reducer';
 import { productsReducer } from './reducers/products.reducer';
 import reduxThunk from 'redux-thunk';
 
-
-const allReducers = combineReducers({
+/* Combine all reducers into a single reducer */
+const rootReducer = combineReducers({
     cart: cartReducer,
     products: productsReducer
 });
 
-// Creates the Redux store and registers the reducers
+/* Creates the Redux store and registers the root reducer */
 export const store = createStore(
-  allReducers,
+  rootReducer,
+  /* Allows action creators to return functions & dispatch additional actions. */
   applyMiddleware(reduxThunk)
 );
 
