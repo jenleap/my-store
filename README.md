@@ -6,18 +6,18 @@ This application uses the Fake Store API (https://fakestoreapi.com/) to fetch it
 A running instance of this application is available at: https://my-store.jenniferleap.com/
 
 
-##To install & run
+### To install & run
 
 This application was created with Node v18.15.0.
 
 To install the node modules run:
 ```
-    $ npm install
+     npm install
 ```
 
 Once the packages have been installed, run the following command to launch the app in your browser:
 ```
-    $ npm start
+     npm start
 ```
 
 Your running application with be available at: http://localhost:3000/
