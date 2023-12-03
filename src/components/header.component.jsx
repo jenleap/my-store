@@ -33,7 +33,7 @@ const Header = ({ cart }) => {
 
 function mapStateToProps(state) {
     return {
-        cart: state
+        cart: state.cart
     };
 }
 

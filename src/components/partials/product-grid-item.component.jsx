@@ -57,7 +57,7 @@ const ProductGridItem = ({ product, cart }) => {
 
 function mapStateToProps(state) {
     return {
-        cart: state
+        cart: state.cart
     };
 }
 

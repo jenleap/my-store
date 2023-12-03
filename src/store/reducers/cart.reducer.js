@@ -5,9 +5,9 @@ import {
     UPDATE_ITEM
 } from '../actions/cart.actions';
 
-/* Initial state is an empty array which will contain products. */
+/* Initial state is an empty array which will contain products in cart. */
 /* Will return the updated state based on the action type without mutating original state. */
-export const reducer = (state = [], action) => {
+export const cartReducer = (state = [], action) => {
     switch(action.type) {
         /* Receives a product and returns original state with additional product */
         case ADD_TO_CART:

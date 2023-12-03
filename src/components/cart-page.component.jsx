@@ -71,7 +71,7 @@ const SummaryDiv = styled.div`
 
 const mapStateToProps = (state) => {
     return {
-        cart: state
+        cart: state.cart
     }
 };
 
