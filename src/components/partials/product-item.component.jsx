@@ -2,11 +2,11 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cart.actions';
-import { SplitDiv } from '../ui/split-div.styled';
+import { SplitDiv } from '../ui/split-div.component';
 import { formatPrice } from '../../utils/formatters';
-import { Button } from '../ui/button.styled';
+import { Button } from '../ui/styles/button.styled';
 import { IncrementDecrement } from '../ui/increment-decrement.component';
-import { BasicText, HeadingText, NumberText } from '../ui/text.styled';
+import { BasicText, HeadingText, NumberText } from '../ui/styles/text.styled';
 
 const ProductItem = ({ product, onAdded, addToCart }) => {
     const [ quantity, setQuantity ] = useState(1);

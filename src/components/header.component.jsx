@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Badge from '@mui/material/Badge';
-import { RowContainer } from './ui/container.styled';
+import { RowContainer } from './ui/styles/container.styled';
 
 const Header = ({ cart }) => {
     return (
@@ -24,7 +24,6 @@ const Header = ({ cart }) => {
                         <IconWrapper>
                             <ShoppingCartIcon sx={{ color: 'white'}} />
                         </IconWrapper>
-                        
                 )}
             </Link>
             </RowContainer>

@@ -1,6 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
 import styled from 'styled-components';
 
+/* Simple X button positioned in the upper right corner of its parent with a click handler. */
 export const RemoveButton = ({ handleClick }) => {
     return (
         <RemoveButtonWrapper onClick={ handleClick }>

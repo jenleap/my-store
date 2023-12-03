@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { removeFromCart, updateItem } from '../../store/actions/cart.actions';
-import { SplitDiv } from '../ui/split-div.styled';
+import { SplitDiv } from '../ui/split-div.component';
 import { formatPrice } from '../../utils/formatters';
-import { RemoveButton } from '../ui/remove-button.styled';
+import { RemoveButton } from '../ui/remove-button.component';
 import { IncrementDecrement } from '../ui/increment-decrement.component';
-import { BasicText, SubHeadingText, NumberText } from '../ui/text.styled';
-import { Row } from '../ui/container.styled';
+import { SubHeadingText, NumberText } from '../ui/styles/text.styled';
+
 
 const CartItem = ({ product, removeFromCart, updateItem }) => {
 
@@ -26,20 +25,17 @@ const CartItem = ({ product, removeFromCart, updateItem }) => {
     return (
         <ItemWrapper>
             <RemoveButton handleClick={() => removeFromCart(product.id)} />
-        <SplitDiv leftWeight={1} rightWeight={3}>
-            <>
+            <SplitDiv leftWeight={1} rightWeight={3}>
                 <ImageDiv src={ product.image } alt={ product.title }></ImageDiv>
-            </>
-            <>
-                <SubHeadingText>{ product.title }</SubHeadingText>
-                <NumberText>Price: { formatPrice(product.price) }</NumberText>
-                <QuantityWrapper>
-                    <IncrementDecrement quantity={ product.quantity } handleQuantityUpdate={ updateQuantity } />
-                    <NumberText>{ formatPrice(calculateTotal()) }</NumberText>
-                </QuantityWrapper>
-                
-            </>
-        </SplitDiv>
+                <>
+                    <SubHeadingText>{ product.title }</SubHeadingText>
+                    <NumberText>Price: { formatPrice(product.price) }</NumberText>
+                    <QuantityWrapper>
+                        <IncrementDecrement quantity={ product.quantity } handleQuantityUpdate={ updateQuantity } />
+                        <NumberText>{ formatPrice(calculateTotal()) }</NumberText>
+                    </QuantityWrapper>   
+                </>
+            </SplitDiv>
         </ItemWrapper>
     )
 }

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import Fade from '@mui/material/Fade';
 import Grow from '@mui/material/Grow';
-import { RemoveButton } from './remove-button.styled';
+import { RemoveButton } from './remove-button.component';
 
-
+/* A modal component that accepts a showModal prop to tell it show or disappear from screen. It has a closeModal function
+to notify parent components that its showModal prop needs to be set to false. It accepts children which it will display in 
+the modal body. */
 export const Modal = ({ showModal, closeModal, children }) => {
     return (
         <>

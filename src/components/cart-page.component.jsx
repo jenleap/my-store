@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Divider from '@mui/material/Divider';
 import { clearCart } from '../store/actions/cart.actions';
-import { Container, Row } from './ui/container.styled';
-import { SplitDiv } from './ui/split-div.styled';
+import { Container, Row } from './ui/styles/container.styled';
+import { SplitDiv } from './ui/split-div.component';
 import CartItem from './partials/cart-item.component';
 import { formatPrice } from '../utils/formatters';
-import { Button, GhostButton } from './ui/button.styled';
-import { BasicText, HeadingText, NumberText, SubHeadingText } from './ui/text.styled';
+import { Button, GhostButton } from './ui/styles/button.styled';
+import { BasicText, HeadingText, NumberText, SubHeadingText } from './ui/styles/text.styled';
 
 const CartPage = ({ cart, clearCart}) => {
 

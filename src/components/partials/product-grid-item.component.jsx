@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { formatPrice } from '../../utils/formatters';
-import { BasicText, NumberText, SubHeadingText } from '../ui/text.styled';
+import { BasicText, NumberText, SubHeadingText } from '../ui/styles/text.styled';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Modal } from '../ui/modal.component';

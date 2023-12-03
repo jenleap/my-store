@@ -1,1 +1,2 @@
-export const mockProductsApi = 'https://fakestoreapi.com/products';
+// Api to return a list of products
+export const mockProductsApi = 'https://fakestoreapi.com';
