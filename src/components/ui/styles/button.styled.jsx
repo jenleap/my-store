@@ -8,20 +8,13 @@ export const Button = styled.button`
     border: none;
     text-transform: uppercase;
 
-    &:focus {
-        transform: scale(0.9);
+    &:active {
+        transform: scale(0.98);
     }
 `;
 
-export const GhostButton = styled.button`
+export const GhostButton = styled(Button)`
     background-color: white;
     color: black;
     border: 1px solid black;
-    padding: 8px 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-
-    &:focus {
-        transform: scale(0.9);
-    }
 `;

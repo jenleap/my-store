@@ -12,8 +12,10 @@ const ProductItem = ({ product, onAdded, addToCart }) => {
     const [ quantity, setQuantity ] = useState(1);
 
     const onAddToCart = () => {
-        addToCart({...product, quantity});
-        onAdded();
+        if (quantity > 0) {
+            addToCart({...product, quantity});
+            onAdded();
+        }
     }
 
     return (
