@@ -10,7 +10,9 @@ export const getProducts = (page) => dispatch => {
     fetch(`${mockProductsApi}/products?limit=${limit}`)
         .then(res => res.json())
         .then(products => {
+            /* Because we are calling the mockapi more than once, generate unique ids for each product. */
             const formattedProducts = formatProductIds(products, page);
+            /* Dispatch action to the store */
             dispatch({
                 type: GET_PRODUCTS,
                 payload: {

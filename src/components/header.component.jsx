@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Badge from '@mui/material/Badge';
 import { RowContainer } from './ui/styles/container.styled';
 
+/* Header component with links for navigating to Product Page and Cart Page. */
 const Header = ({ cart }) => {
     return (
         <HeaderContainer>
@@ -30,12 +31,14 @@ const Header = ({ cart }) => {
     )
 }
 
+/* Maps the state from the Redux store to the component props */
 function mapStateToProps(state) {
     return {
         cart: state.cart
     };
 }
 
+/* Connects the component to the Redux store */
 export default connect(mapStateToProps, { })(Header);
 
 const HeaderContainer = styled.header`

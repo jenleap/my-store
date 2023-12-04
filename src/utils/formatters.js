@@ -1,9 +1,9 @@
-// Receive a number and returns a string with $ and number formatted to two decimal places
+/* Receive a number and returns a string with $ and number formatted to two decimal places */
 export const formatPrice = (price) => {
     return `$${ Number(price).toFixed(2)}`;
 }
 
-// Because we are calling the mockapi more than once, generate unique ids to be used as keys
+/* Create unique id based on product id & page number. */
 export const formatProductIds = (products, page) => {
     return products.map(product => {
         return {

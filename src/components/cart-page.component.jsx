@@ -9,10 +9,11 @@ import { formatPrice } from '../utils/formatters';
 import { Button, GhostButton } from './ui/styles/button.styled';
 import { BasicText, HeadingText, NumberText } from './ui/styles/text.styled';
 
+/* Page for displaying a summary of the items a customer has added to their shopping cart. */
 const CartPage = ({ cart, clearCart}) => {
+    /* Calculates the total cost of all products in cart based on their selected quantities. */
     const getSubtotal = () => {
         return cart.reduce((total, product) => {
-            console.log(total, product);
             return total + (product.quantity * product.price);
         }, 0);
     }
@@ -68,16 +69,19 @@ const SummaryDiv = styled.div`
     padding: 15px;
 `;
 
+/* Maps the state from the Redux store to the component props */
 const mapStateToProps = (state) => {
     return {
         cart: state.cart
     }
 };
 
+/* Maps the action creators to the component props */
 const mapDispatchToProps = (dispatch) => {
     return {
         clearCart: () => dispatch(clearCart())
     }
 }
 
+/* Connects the component to the Redux store */
 export default connect(mapStateToProps, mapDispatchToProps)(CartPage);

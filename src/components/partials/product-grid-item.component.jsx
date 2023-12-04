@@ -55,12 +55,14 @@ const ProductGridItem = ({ product, cart }) => {
     )
 }
 
+/* Maps the state from the Redux store to the component props */
 function mapStateToProps(state) {
     return {
         cart: state.cart
     };
 }
 
+/* Connects the component to the Redux store */
 export default connect(mapStateToProps, { })(ProductGridItem);
 
 

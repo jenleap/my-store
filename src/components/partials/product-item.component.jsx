@@ -11,7 +11,10 @@ import { BasicText, HeadingText, NumberText } from '../ui/styles/text.styled';
 const ProductItem = ({ product, onAdded, addToCart }) => {
     const [ quantity, setQuantity ] = useState(1);
 
+    /* When user clicks Add to Cart, addToCart action creator is called & parent component
+    is notified so that modal may be closed. */
     const onAddToCart = () => {
+        /* User cannot add to cart if quantity is 0. */
         if (quantity > 0) {
             addToCart({...product, quantity});
             onAdded();
@@ -32,12 +35,14 @@ const ProductItem = ({ product, onAdded, addToCart }) => {
     )
 }
 
+/* Maps the action creators to the component props */
 const mapDispatchToProps = (dispatch) => {
     return {
         addToCart: product => dispatch(addToCart(product))
     }
 }
 
+/* Connects the component to the Redux store */
 export default connect(null, mapDispatchToProps)(ProductItem);
 
 const DetailsDiv = styled.div`
